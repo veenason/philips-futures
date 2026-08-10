@@ -3,7 +3,7 @@
   const titleize = value => value.replace(/^\d+-/, "").replaceAll("-", " ");
   const signalLabel = (theme, image) => theme.signalLabels?.[image] || titleize(image);
   const imageSrc = (theme, image) => {
-    if (theme.tone === "craft" && image === "00-shared-wooden-vitals-bed") return "assets/handcrafted-care-bed-vitals-v2.webp";
+    if (theme.tone === "craft" && image === "00-shared-wooden-vitals-bed") return "assets/handcrafted-care-bed-vitals-hires.png";
     if (theme.tone === "craft" && image === "03-handdrawn-apps") return "assets/lumea-illustration-first-tilted.webp?v=20260807-1512";
     if (theme.tone === "invisible" && image === "01-limestone-sensing-seam") return "assets/invisible-wellness-ring-patch-hero.webp?v=20260807-1541";
     if (theme.tone === "invisible" && image === "02-adaptive-lamp") return "assets/invisible-wellness-transparent-ring-ui.webp?v=20260807-1541";
