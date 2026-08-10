@@ -166,7 +166,7 @@ window.CARE_FUTURES = {
       signalLabels: {
         "02-full-body-vitals-mirror": "Information everywhere",
         "03-brain-sensory-field": "Data becomes multisensory",
-        "04-glowing-vessel": "Data gains physical presence"
+        "04-glowing-vessel": "The body becomes a living data field"
       },
       interfaceExamples: [
         { shift: "Modality shift", title: "Data becomes felt", summary: "A trend becomes paced light, haptic rhythm or spatial sound, with numbers always available.", implication: "Define equivalent visual, haptic, sonic and text representations for every state.", tokens: ["Multisensory", "Equivalent", "Accessible"], demo: "multisensory-vital-wave", demoAlt: "One patient signal translated into light, sound, touch and text" },
