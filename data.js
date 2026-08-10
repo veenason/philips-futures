@@ -68,7 +68,7 @@ window.CARE_FUTURES = {
     },
     "invisible-wellness": {
       title: "Invisible Wellness", casting: "Plausible", horizon: "2027 → 2030", score: "90", tone: "invisible",
-      integrateInterfaceImages: true,
+      integrateInterfaceImages: false,
       kicker: "Micro-sensing · care at the edge of attention", persona: "The Ascendants",
       description: "The best wellness interface is often small enough to disappear into a familiar object or daily ritual.",
       mandate: "Make sensing quiet, evidence transparent and attention optional.",
