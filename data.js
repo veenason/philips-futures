@@ -26,7 +26,25 @@ window.CARE_FUTURES = {
         ["Interface move", "Use wood-integrated touch, a single warm light state and a deliberate press-and-hold acknowledgement."],
         ["Guardrail", "Never disguise sensing: show its state, make it physically interruptible and keep care data out of shared view by default."]
       ],
-      evidence: ["Accenture Life Trends 2026 · Stability premium", "Futurescape 2026 · AI handles with care"],
+      evidence: ["WGSN × Philips · Sensorial Reset (pp. 10–11, 34–35)", "frog Futurescape 2026 · AI breaks through the screen (PDF p. 17)"],
+      researchBrief: {
+        provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
+        mappingStatus: "Handcrafted Care is a Philips concept mapped to WGSN’s Sensorial Reset; it is not a theme named in the report.",
+        bigIdeas: [
+          { title: "Sensorial Reset", summary: "Tangibility, craft, touch and emotional materiality become signals of care, quality and human effort.", scores: [["2026", "79"], ["2027", "80"], ["2028", "82"]], citation: "WGSN × Philips, pp. 10–11 and 34–35" }
+        ],
+        persona: { title: "The Keepers", body: "Trust, stability and resilience shape this cross-generational persona. The report connects it with longevity, honest construction and carefully crafted texture.", citation: "WGSN × Philips, pp. 24–25" },
+        cohorts: { title: "Gen X + Boomers", body: "Gen X values sensory-rich environments that support wellbeing; Boomers favour familiar, comforting cues that reinforce trust and stability.", citation: "WGSN × Philips, p. 11" },
+        actions: ["Explore multiple senses", "Rework texture and materiality", "Offer sensory control", "Make technology use deliberate"],
+        mandate: "Let emotional materiality become visible proof of care.",
+        prompt: "How could Philips deliver care through a sensorial experience?",
+        signals: [
+          { publisher: "WGSN × Philips", title: "Design for permanence", finding: "The Keepers strategy points to long life, refined engineering, crafted texture and honest construction.", citation: "pp. 24–25", kind: "Direct report evidence" },
+          { publisher: "WGSN × Philips", title: "Calibrated technology", finding: "The Restorers add a complementary need for calm, intentional technology and domestic warmth around care.", citation: "pp. 26–27", kind: "Supporting report evidence" },
+          { publisher: "frog Futurescape 2026", title: "AI moves into objects and spaces", finding: "Ambient intelligence extends into physical objects and places, making dignity, boundaries and the texture of daily life central design questions.", citation: "PDF p. 17 · report p. 33", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+        ],
+        integrity: "Scores shown here belong to WGSN’s Sensorial Reset Big Idea. No survey percentage is claimed. Interface implications are Philips design synthesis."
+      },
       interfaceEvolution: ["Tactile · ambient · low-attention", "The interface stays dormant until relevance is high, then appears through one glanceable state, a deliberate touch and a quiet confirmation.", "Filament evolves from screen components into calm-state tokens: restrained light, progressive disclosure, tactile acknowledgement and a persistent privacy state."],
       images: ["00-shared-wooden-vitals-bed", "01-linen-vitals", "02-knitted-temperature", "03-handdrawn-apps", "04-ceramic-taps", "05-rattan-interface", "06-upholstered-eink", "07-embroidered-alerts", "08-haptic-velvet", "09-heirloom-dial"],
       signalLabels: {
@@ -49,9 +67,9 @@ window.CARE_FUTURES = {
       ]
     },
     "invisible-wellness": {
-      title: "Invisible Wellness", casting: "Plausible", horizon: "2027 → 2030", score: "79", tone: "invisible",
+      title: "Invisible Wellness", casting: "Plausible", horizon: "2027 → 2030", score: "90", tone: "invisible",
       integrateInterfaceImages: true,
-      kicker: "Micro-sensing · care at the edge of attention", persona: "The Ease Seekers",
+      kicker: "Micro-sensing · care at the edge of attention", persona: "The Ascendants",
       description: "The best wellness interface is often small enough to disappear into a familiar object or daily ritual.",
       mandate: "Make sensing quiet, evidence transparent and attention optional.",
       ui: "Jewelry-thin sensing, glass evidence layers, personal micro-graphs.",
@@ -66,7 +84,25 @@ window.CARE_FUTURES = {
         ["Interface move", "Use transparent layers to separate raw signal, personal context and suggested action; use fine graphs to show change without dramatizing it."],
         ["Guardrail", "Invisible must never mean unknowable. Contact, calibration, confidence, retention and sharing need visible states and immediate controls."]
       ],
-      evidence: ["Accenture Life Trends 2026 · Stability premium", "Futurescape 2026 · Healthcare finally gets personal"],
+      evidence: ["WGSN × Philips · AI Ordinary (pp. 8–9, 34–35)", "frog Futurescape 2026 · healthcare finally gets personal (PDF p. 8)"],
+      researchBrief: {
+        provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
+        mappingStatus: "Invisible Wellness is a Philips concept mapped to WGSN’s AI Ordinary; it is not a theme named in the report.",
+        bigIdeas: [
+          { title: "AI Ordinary", summary: "AI adoption grows when it feels ambient, intuitive and useful while strengthening convenience, personalisation and confidence.", scores: [["2026", "84"], ["2027", "84"], ["2028", "90"]], citation: "WGSN × Philips, pp. 8–9 and 34–35" }
+        ],
+        persona: { title: "The Ascendants", body: "Personal growth, adaptiveness and confidence define this persona. Its health priority is progress through intuitive, responsive experiences.", citation: "WGSN × Philips, pp. 22–23" },
+        cohorts: { title: "All five cohorts", body: "Expectations range from seamless ambient participation for Gen Alpha to transparency for Gen Z, credibility for Millennials and human judgement plus reassurance for Gen X and Boomers.", citation: "WGSN × Philips, p. 9" },
+        actions: ["Build emotionally aware UI", "Make system behaviour transparent", "Allow meaningful customisation"],
+        mandate: "Make intelligence ambient without making it unknowable.",
+        prompt: "How could Philips rebalance daily life and technology while enabling trust and privacy?",
+        signals: [
+          { publisher: "WGSN × Philips", title: "Omnipresent wellness", finding: "The report anticipates wellness working in symbiosis with daily life rather than remaining a separate activity.", citation: "p. 6", kind: "Direct report evidence" },
+          { publisher: "WGSN × Philips", title: "Transparency remains essential", finding: "Ambient intelligence still needs visible control, understandable behaviour and opportunities to personalise the experience.", citation: "p. 9", kind: "Direct report evidence" },
+          { publisher: "frog Futurescape 2026", title: "Healthcare becomes an adaptive ecosystem", finding: "Personal signals can support more adaptive care, while opt-in sharing and passive reporting keep the experience quieter and more continuous.", citation: "PDF p. 8 · report p. 15", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+        ],
+        integrity: "Scores shown here belong to WGSN’s AI Ordinary Big Idea. Rings and patches are illustrative interface forms, not products forecast by the report."
+      },
       interfaceEvolution: ["Micro-sensing · transparent · personally calibrated", "The interface shifts from a destination to a quiet evidence layer: dormant by default, legible at a threshold and detailed only when the person asks.", "Filament needs contact and calibration states, transparent evidence layers, baseline-aware micro-graphs and consistent privacy controls across wearable, patch, mobile and environmental surfaces."],
       images: ["01-limestone-sensing-seam", "02-adaptive-lamp", "03-air-and-curtains", "04-ceiling-glow", "05-sensing-rug", "06-quiet-carafe", "07-guide-light", "08-kitchen-ritual", "09-adaptive-mirror", "10-room-orb"],
       signalLabels: {
@@ -89,8 +125,8 @@ window.CARE_FUTURES = {
       ]
     },
     "sensory-sanctuary": {
-      title: "Sensory Sanctuary", casting: "Plausible", horizon: "2026 → 2032", score: "86", tone: "sensory", trustLayer: true,
-      kicker: "Sensory intelligence · adaptive trust", persona: "The Sensory Stewards",
+      title: "Sensory Sanctuary", casting: "Plausible", horizon: "2026 → 2032", score: "92", tone: "sensory", trustLayer: true,
+      kicker: "Sensory intelligence · adaptive trust", persona: "The Restorers · The Keepers",
       description: "Care data becomes a calm sensory language—felt through light, rhythm and haptics, with its evidence and consent always available to inspect.",
       mandate: "Make data felt, while keeping every interpretation legible and reversible.",
       ui: "Sensory data fields, haptic encoding, visible provenance and reversible adaptation.",
@@ -105,7 +141,26 @@ window.CARE_FUTURES = {
         ["Interface move", "Translate verified change into light rhythm, spatial colour, sound restraint and haptic pulse; reveal the underlying evidence on demand."],
         ["Guardrail", "Never make sensory feedback the only route to meaning. Every cue needs accessible alternatives, explicit consent, a pause state and human review."]
       ],
-      evidence: ["Accenture Life Trends 2026 · Good vibrations", "Futurescape 2026 · Burnout becomes systemic", "Futurescape 2026 · Trust becomes universal currency"],
+      evidence: ["WGSN × Philips · Sensorial Reset + Restoring Trust (pp. 10–11, 18–19, 34–35)", "frog Futurescape 2026 · burnout and human sustainability (PDF p. 22)"],
+      researchBrief: {
+        provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · two mapped Big Ideas" },
+        mappingStatus: "Sensory Sanctuary combines two WGSN Big Ideas—Sensorial Reset and Restoring Trust—as a Philips interface synthesis.",
+        bigIdeas: [
+          { title: "Sensorial Reset", summary: "Multisensory calm, materiality and deliberate technology answer digital saturation.", scores: [["2026", "79"], ["2027", "80"], ["2028", "82"]], citation: "WGSN × Philips, pp. 10–11 and 34–35" },
+          { title: "Restoring Trust", summary: "Trust shifts toward visible evidence, accountability, consistency and empowerment.", scores: [["2026", "90"], ["2027", "91"], ["2028", "92"]], citation: "WGSN × Philips, pp. 18–19 and 34–35" }
+        ],
+        persona: { title: "The Restorers + The Keepers", body: "The Restorers seek calm and intentional technology; The Keepers prioritise reliability, privacy, stability and integrity.", citation: "WGSN × Philips, pp. 24 and 26" },
+        cohorts: { title: "Older Gen Z to Boomers", body: "Both personas span older Gen Z, Millennials, Gen X and Boomers, joining restorative sensory needs with stronger expectations of proof and privacy.", citation: "WGSN × Philips, pp. 24 and 26" },
+        actions: ["Create sensory value", "Use technology deliberately", "Show evidence consistently", "Empower people through transparency"],
+        mandate: "Translate verified change into sensory calm without hiding the evidence beneath it.",
+        prompt: "How could Philips deliver a sensorial care experience that also enables trust and privacy?",
+        signals: [
+          { publisher: "WGSN × Philips", title: "A sanctuary of soothing technology", finding: "The Restorers strategy softens sterile devices through gentle form, low-reflection media and domestic warmth.", citation: "p. 27", kind: "Direct report evidence" },
+          { publisher: "WGSN × Philips", title: "Sensory intelligence", finding: "The appendix shifts the goal from capturing attention to creating value through coordinated multisensory strategies.", citation: "p. 43", kind: "Direct report evidence" },
+          { publisher: "frog Futurescape 2026", title: "Recovery becomes systemic", finding: "Always-on culture and technostress create demand for environments and organisations that support human sustainability and recovery.", citation: "PDF p. 22 · report p. 43", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+        ],
+        integrity: "The two score series belong to WGSN Big Ideas. The haptic, light and spatial data examples are Philips concept synthesis, not claims made by WGSN."
+      },
       interfaceEvolution: ["Multisensory · explainable · haptic · reversible", "Data moves from charts into paced light, spatial motion and haptic patterns; a deliberate touch reveals source, confidence and consent without breaking the sensory calm.", "Filament expands beyond visual components to include haptic grammars, low-lux data tokens, sensory preferences, provenance reveal, pause, undo and human-escalation states."],
       images: ["01-mirror-cue", "02-full-body-vitals-mirror", "03-brain-sensory-field", "04-glowing-vessel", "05-sensory-fabric", "06-breathing-light", "07-sound-object", "08-regulation-nook", "09-sunlight-bands", "10-light-landscape"],
       signalLabels: {
@@ -128,8 +183,8 @@ window.CARE_FUTURES = {
       ]
     },
     "adaptive-trust": {
-      title: "Adaptive Trust", casting: "Plausible", horizon: "2027 → 2032", score: "86", tone: "trust", mergedInto: "sensory-sanctuary",
-      kicker: "Legible intelligence · patient agency", persona: "The Stewards",
+      title: "Adaptive Trust", casting: "Plausible", horizon: "2027 → 2032", score: "92", tone: "trust", mergedInto: "sensory-sanctuary",
+      kicker: "Legible intelligence · patient agency", persona: "The Keepers",
       description: "Trust becomes a designed capability: care systems explain, ask, remember boundaries and let people change their mind.",
       mandate: "Make every automation understandable, interruptible and easy to revisit.",
       ui: "Evidence cues, visible consent, clear handoffs and undo.",
@@ -144,7 +199,25 @@ window.CARE_FUTURES = {
         ["Interface move", "Separate facts from recommendations, show provenance at the moment of decision and make consent changes easy to revisit."],
         ["Guardrail", "No recommendation should outrun a person’s understanding. Offer human escalation and an audit trail for consequential automation."]
       ],
-      evidence: ["Accenture Life Trends 2026 · Stability premium", "Futurescape 2026 · Trust becomes universal currency"],
+      evidence: ["WGSN × Philips · Restoring Trust (pp. 18–19, 34–35)", "frog Futurescape 2026 · trust as universal currency (PDF p. 19)"],
+      researchBrief: {
+        provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
+        mappingStatus: "Adaptive Trust is a Philips concept mapped to WGSN’s Restoring Trust; it is now carried into Sensory Sanctuary on the atlas home.",
+        bigIdeas: [
+          { title: "Restoring Trust", summary: "Trust becomes a proof economy built through transparency, accountability, evidence and consistent results.", scores: [["2026", "90"], ["2027", "91"], ["2028", "92"]], citation: "WGSN × Philips, pp. 18–19 and 34–35" }
+        ],
+        persona: { title: "The Keepers", body: "Reliability, privacy, integrity and stability matter more when systems mediate consequential care decisions.", citation: "WGSN × Philips, p. 24" },
+        cohorts: { title: "Older Gen Z to Boomers", body: "The Keepers span older Gen Z, Millennials, Gen X and Boomers, with reassurance and protection needs increasing for older cohorts.", citation: "WGSN × Philips, pp. 19 and 24" },
+        actions: ["Move from protection to empowerment", "Show up consistently", "Practise radical transparency", "Back innovation with evidence"],
+        mandate: "Make the source, boundary and reversibility of every automated action visible.",
+        prompt: "How could Philips enable trust and privacy throughout a connected care journey?",
+        signals: [
+          { publisher: "WGSN × Philips", title: "Proof over claims", finding: "The report foregrounds traceability, consistent delivery and transparent communication as practical trust builders.", citation: "pp. 18–19", kind: "Direct report evidence" },
+          { publisher: "WGSN × Philips", title: "Privacy is part of stability", finding: "The Keepers connect trust with clear data protection, reliability and integrity rather than novelty alone.", citation: "p. 24", kind: "Direct report evidence" },
+          { publisher: "frog Futurescape 2026", title: "Trust differentiates", finding: "When polished interfaces and generated content become abundant, verification and reputation become more valuable differentiators.", citation: "PDF p. 19 · report p. 37", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+        ],
+        integrity: "The score series belongs to WGSN’s Restoring Trust Big Idea. Clinical displays and consent controls on this page are illustrative design explorations."
+      },
       interfaceEvolution: ["Explainable · provenance-rich · reversible", "Every recommendation carries a visible source, confidence boundary, consent state and clear route to inspect, undo or escalate the decision.", "Filament treats provenance, consent, automation status, human review and reversal as first-class components rather than secondary policy screens."],
       images: ["01-shared-care-path", "02-consent-by-design", "03-clinician-priority-view", "04-hospital-to-home", "05-discreet-feedback", "06-ambient-staff-coordination", "07-ambient-shared-care", "08-shared-care-explanation", "09-continuity-control-surface", "10-ambient-care-route"],
       signalLabels: {
@@ -167,8 +240,8 @@ window.CARE_FUTURES = {
       ]
     },
     "molecular-bespoke": {
-      title: "Molecular Bespoke", casting: "Possible", horizon: "2030 → 2038", score: "72", tone: "molecular",
-      kicker: "Precision rituals · deeply personal care", persona: "The Individualists",
+      title: "Molecular Bespoke", casting: "Possible", horizon: "2030 → 2038", score: "68", tone: "molecular",
+      kicker: "Precision rituals · deeply personal care", persona: "The Challengers",
       description: "Personal biology, materials and micro-diagnostics converge into care objects that feel singular rather than clinical.",
       mandate: "Translate precision medicine into calm, dignified daily rituals.",
       ui: "Personal baselines, discreet detail, patient-owned context.",
@@ -183,7 +256,25 @@ window.CARE_FUTURES = {
         ["Interface move", "Show a personal baseline before a recommendation, use discreet held objects and let people decide what context travels to care teams."],
         ["Guardrail", "Precision must not become biometric exposure. Apply data minimisation, meaningful consent and equitable routes into advanced care."]
       ],
-      evidence: ["Accenture Life Trends 2026 · Coming of age", "Futurescape 2026 · Aging becomes a choice"],
+      evidence: ["WGSN × Philips · Fragmented Identities (pp. 16–17, 34–35)", "frog Futurescape 2026 · healthcare gets personal + aging becomes a choice (PDF pp. 8, 28)"],
+      researchBrief: {
+        provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · partial mapping with explicit limits" },
+        mappingStatus: "Molecular Bespoke is only partially supported by WGSN. The report supports individualisation and context-specific needs—not molecular diagnostics or precision dosing.",
+        bigIdeas: [
+          { title: "Fragmented Identities", summary: "Identity becomes interest-, mood- and context-specific, weakening the idea of a single standard consumer.", scores: [["2026", "64"], ["2027", "65"], ["2028", "68"]], citation: "WGSN × Philips, pp. 16–17 and 34–35" }
+        ],
+        persona: { title: "The Challengers", body: "This persona expects individualised adaptability because one size does not fit all; agency and recognition of different needs are central.", citation: "WGSN × Philips, p. 28" },
+        cohorts: { title: "Older Gen Z to Boomers", body: "Needs diverge across life stages—from confidence and long-term vitality to hormonal transitions, independence and longer lives.", citation: "WGSN × Philips, pp. 6 and 28" },
+        actions: ["Design for context-specific needs", "Recognise overlooked consumers", "Support flexible identities", "Make customisation understandable"],
+        mandate: "Use a personal baseline, show why the experience changed and let context travel selectively.",
+        prompt: "How could Philips support people whose needs and identities shift across life stages and contexts?",
+        signals: [
+          { publisher: "WGSN × Philips", title: "No single standard user", finding: "The report directs teams toward niche needs, greater visibility for overlooked consumers and stronger recognition of individuality.", citation: "pp. 16–17", kind: "Direct report evidence" },
+          { publisher: "WGSN × Philips", title: "One size does not fit all", finding: "The Challengers place individualised adaptability and agency at the centre of health and wellbeing experiences.", citation: "p. 28", kind: "Direct report evidence" },
+          { publisher: "frog Futurescape 2026", title: "Healthcare becomes responsive", finding: "A future health ecosystem combines personal data streams into more adaptive, preventative and person-specific support.", citation: "PDF pp. 8 and 28 · report pp. 15 and 55", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+        ],
+        integrity: "The score series belongs to WGSN’s Fragmented Identities Big Idea. Biomarkers, patches and dosing concepts are speculative and are not evidenced by the WGSN report."
+      },
       interfaceEvolution: ["Biometric · baseline-aware · privacy-preserving", "The interface interprets a signal against the individual’s own baseline and communicates meaningful change without prescribing a particular ring, band, patch or device.", "Filament needs baseline-relative visualisation, uncertainty ranges, selective disclosure and patient-held sharing controls that work across biometric form factors."],
       images: ["00-bespoke-wearable-baseline", "01-biometric-ring", "02-personal-vessel", "03-biomaterial-patch", "04-personal-vial", "05-dose-ritual", "06-palm-scanner", "07-biometric-object", "08-wrist-band", "09-personal-diagnostic", "10-precision-ring"],
       signalLabels: {

@@ -21,8 +21,23 @@
     brand.setAttribute("aria-label","Philips Care Futures home");
     brand.innerHTML='<img src="assets/philips-logo-white.webp" alt="Philips"><span>Care Futures</span>';
   }
-  const card = (slug, theme, index) => `<a class="theme-card theme-card--${index + 1}" href="${slug}.html"><img ${index > 1 ? 'loading="lazy"' : ''} src="${imageSrc(theme, theme.images[0])}" alt="${theme.title} visual direction"><div class="theme-card__top"><span>${String(index + 1).padStart(2, "0")} · ${theme.casting}</span><span>${theme.score}</span></div><div class="theme-card__body"><h2>${theme.title}</h2><p>${theme.kicker}</p><div class="theme-card__link">Open study <b>↗</b></div></div></a>`;
+  const mappedScore = theme => {
+    const scores = theme.researchBrief?.bigIdeas?.flatMap(idea => idea.scores || []) || [];
+    return scores.length ? Math.max(...scores.map(([, value]) => Number(value))) : Number(theme.score);
+  };
+  const card = (slug, theme, index) => `<a class="theme-card theme-card--${index + 1}" href="${slug}.html"><img ${index > 1 ? 'loading="lazy"' : ''} src="${imageSrc(theme, theme.images[0])}" alt="${theme.title} visual direction"><div class="theme-card__top"><span>${String(index + 1).padStart(2, "0")} · ${theme.casting}</span><span title="Mapped WGSN 2028 Big Idea score">${mappedScore(theme)} <small>WGSN</small></span></div><div class="theme-card__body"><h2>${theme.title}</h2><p>${theme.kicker}</p><div class="theme-card__link">Open study <b>↗</b></div></div></a>`;
   const sourceCard = source => `<article class="source-card"><h3>${source.label}</h3><p>${source.values.join(" · ")}</p><small>Reference lens for this directional study</small></article>`;
+  const researchBrief = theme => {
+    const brief = theme.researchBrief;
+    if (!brief) return "";
+    const ideaCards = brief.bigIdeas.map(idea => {
+      const first = idea.scores[0];
+      const last = idea.scores[idea.scores.length - 1];
+      return `<article class="research-idea"><div class="research-idea__top"><span>Mapped WGSN Big Idea</span><cite>${idea.citation}</cite></div><h3>${idea.title}</h3><p>${idea.summary}</p><dl class="research-score" aria-label="${idea.title} WGSN score from ${first[0]} to ${last[0]}">${idea.scores.map(([year,value])=>`<div><dt>${year}</dt><dd>${value}</dd></div>`).join("")}</dl><p class="research-score__trend">Published WGSN score · ${first[1]} → ${last[1]}</p></article>`;
+    }).join("");
+    const signalCards = brief.signals.map(signal => `<article class="research-signal"><span>${signal.publisher}</span><small>${signal.kind}</small><h3>${signal.title}</h3><p>${signal.finding}</p><footer><cite>${signal.citation}</cite>${signal.url ? `<a href="${signal.url}" target="_blank" rel="noreferrer" aria-label="Open ${signal.publisher} source for ${signal.title}">Open source ↗</a>` : ""}</footer></article>`).join("");
+    return `<section class="research-brief" aria-labelledby="research-brief-title"><header class="research-brief__header"><div><p class="eyebrow">Source-backed evidence</p><h2 id="research-brief-title">What the research says</h2></div><div class="research-provenance"><span>${brief.provenance.publisher}</span><strong>${brief.provenance.report}</strong><small>${brief.provenance.note}</small></div></header><p class="research-mapping">${brief.mappingStatus}</p><div class="research-ideas research-ideas--${brief.bigIdeas.length}">${ideaCards}</div><div class="research-facts"><article><span>Future consumer persona · mapped</span><h3>${brief.persona.title}</h3><p>${brief.persona.body}</p><cite>${brief.persona.citation}</cite></article><article><span>Generational cohorts</span><h3>${brief.cohorts.title}</h3><p>${brief.cohorts.body}</p><cite>${brief.cohorts.citation}</cite></article></div><div class="research-actions"><div><span>Direct actions, paraphrased</span><ul>${brief.actions.map(action=>`<li>${action}</li>`).join("")}</ul></div><article><span>Philips design mandate · synthesis</span><strong>${brief.mandate}</strong></article><article><span>Philips thought starter · synthesis</span><strong>${brief.prompt}</strong></article></div><section class="research-signals" aria-labelledby="research-signals-title"><p class="eyebrow">Supporting signals</p><h3 id="research-signals-title">Evidence that strengthens the direction</h3><div>${signalCards}</div></section><footer class="research-integrity"><strong>Evidence note</strong><p>${brief.integrity}</p><p>Only sources verified in the uploaded reports are shown; unsupported Mintel, Kantar and percentage claims are intentionally excluded.</p></footer></section>`;
+  };
   const interfaceDemo = kind => ({
     "material-vitals-strip": `<div class="demo-photo-surface demo-photo-surface--wall" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/material-wall-vitals.webp" alt=""><span>Wall · vitals</span></div>`,
     "tactile-gesture-sequence": `<div class="demo-photo-surface demo-photo-surface--wood" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/material-wood-control.webp" alt=""><span>Wood · deliberate touch</span></div>`,
@@ -96,15 +111,14 @@
         </div>
         ${theme.integrateInterfaceImages ? "" : `<section class="visual-sequence" aria-labelledby="visual-sequence-title"><p class="eyebrow" id="visual-sequence-title">Interface trends</p><div>${theme.images.slice(1,4).map((image,index)=>scenarioTrigger(image, index + 1, "", signalLabel(theme, image))).join("")}</div></section>`}
         <section class="brief-values" aria-label="Experience principles">${theme.values.map(([label,value])=>`<div><span>${label}</span><strong>${value}</strong></div>`).join("")}</section>
+        ${researchBrief(theme)}
         ${trustAnatomyExplorer(theme)}
-        ${glyphInstrument(theme)}
         ${trustExplorer(theme)}
         <section class="trend-lens" aria-labelledby="lens-title"><p class="eyebrow" id="lens-title">Society → experience → interface</p><h2>Why this direction matters now</h2><div class="trend-lens__grid">${theme.lens.map(([label,value])=>`<article><p>${label}</p><strong>${value}</strong></article>`).join("")}</div><p class="trend-lens__evidence">Signals informing this exploration: ${theme.evidence.join(" · ")}</p></section>
         <section class="product-reframe" aria-labelledby="product-reframe-title"><p class="eyebrow">Interface evolution</p><h2 id="product-reframe-title">How the interface changes</h2><div class="product-reframe__grid"><p><span>Defining characteristics</span><strong>${theme.interfaceEvolution[0]}</strong></p><p><span>Emerging behaviour</span><strong>${theme.interfaceEvolution[1]}</strong></p><p class="product-reframe__idea"><span>Design-system implication</span><strong>${theme.interfaceEvolution[2]}</strong></p></div><p class="product-reframe__note">This direction describes interface qualities and behaviours, not a recommendation for a particular product, material or form factor.</p></section>
         ${interfaceExamples(theme)}
         ${applicationExample(theme)}
         <section class="brief-specs" aria-label="Direction summary"><div><p class="eyebrow">Future consumer persona</p><strong>${theme.persona}</strong></div><div><p class="eyebrow">Design mandate</p><strong>${theme.mandate}</strong></div><div><p class="eyebrow">Philips UI principle</p><strong>${theme.ui}</strong></div></section>
-        <section class="detail-sources" aria-labelledby="sources-title"><p class="eyebrow">Supporting signals · source map</p><h2 id="sources-title">Signals behind the direction</h2><p class="source-note">Source families frame the study; the narrative and visuals are original exploration and do not reproduce proprietary reports.</p><div class="grid source-compact">${data.sources.map(sourceCard).join("")}</div></section>
         <dialog class="scenario-dialog" id="scenario-dialog" aria-labelledby="scenario-title"><div class="scenario-dialog__inner"><button class="scenario-dialog__close" type="button" data-close aria-label="Close scenario">×</button><p class="eyebrow">Hand-sketched scenario</p><h2 id="scenario-title"></h2><img src="" alt=""><p class="scenario-dialog__caption"></p></div></dialog>
       </article>`;
     const dialog=document.querySelector("#scenario-dialog");
