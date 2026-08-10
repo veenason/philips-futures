@@ -4,7 +4,7 @@
   --viz-line:#343c43;
   --viz-copy:#aeb8c0;
   --viz-white:#f7fafc;
-  --viz-blue:#5f96ff;
+  --viz-blue:#02abb1;
   --viz-aqua:#bdf0ff;
   --viz-gold:#fca708;
   --viz-coral:#f85569;
@@ -77,19 +77,21 @@
 
 .calm-viz__arc-wrap{position:relative;width:min(100%,330px);margin:auto auto 0}
 .calm-viz__arc-wrap svg{display:block;width:100%;height:auto}
-.calm-viz__arc-track,.calm-viz__arc-value{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}
+.calm-viz__arc-track,.calm-viz__arc-glow,.calm-viz__arc-value{fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .calm-viz__arc-track{stroke:#4c545a}
-.calm-viz__arc-value{stroke:var(--viz-aqua);stroke-width:6}
+.calm-viz__arc-glow{stroke:var(--viz-aqua);stroke-width:13;opacity:.12}
+.calm-viz__arc-value{stroke:var(--viz-aqua);stroke-width:4}
+.calm-viz__arc-halo{fill:var(--viz-aqua);opacity:.12}
 .calm-viz__arc-point{fill:var(--viz-coral);stroke:var(--viz-white);stroke-width:2}
 .calm-viz__arc-wrap>strong{position:absolute;left:0;right:0;bottom:22px;color:var(--viz-white);font-size:34px;font-weight:300;letter-spacing:-.04em;text-align:center}
 .calm-viz__ticks{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:-3px 0 21px}
 .calm-viz__ticks span{color:#93a1aa;font-size:9px;font-weight:400;text-align:center}
 
 .calm-viz__bars{display:flex;align-items:end;gap:5px;height:170px;margin:30px 0 18px;padding:0 4px 22px;border-bottom:1px solid #4a5258}
-.calm-viz__bars>i{flex:1;height:var(--h);min-width:3px;border-radius:4px;background:#6f7880}
-.calm-viz__bars>i.is-reference{background:var(--viz-aqua)}
-.calm-viz__bars>i.is-uncertain{background:var(--viz-gold)}
-.calm-viz__bars>i.is-attention{background:var(--viz-coral)}
+.calm-viz__bars>i{flex:1;height:var(--h);min-width:3px;border-radius:4px;background:linear-gradient(180deg,#aab5bc 0%,#59646c 100%)}
+.calm-viz__bars>i.is-reference{background:linear-gradient(180deg,var(--viz-aqua) 0%,var(--viz-blue) 100%)}
+.calm-viz__bars>i.is-uncertain{background:linear-gradient(180deg,#ffe9a7 0%,var(--viz-gold) 100%)}
+.calm-viz__bars>i.is-attention{background:linear-gradient(180deg,#ff9aa6 0%,var(--viz-coral) 100%)}
 .calm-viz__legend{display:flex;flex-wrap:wrap;gap:16px;color:#9eabb3;font-size:9px}
 .calm-viz__legend span{display:flex;align-items:center;gap:6px}
 .calm-viz__legend i{width:15px;height:3px;background:var(--viz-aqua)}
@@ -98,10 +100,32 @@
 
 .calm-viz__plot{display:block;width:100%;height:auto;margin:24px 0 10px;overflow:visible}
 .calm-viz__grid{fill:none;stroke:#343c42;stroke-width:1;vector-effect:non-scaling-stroke}
-.calm-viz__band{fill:#02abb1;opacity:.12}
-.calm-viz__series{fill:none;stroke:var(--viz-aqua);stroke-width:3;vector-effect:non-scaling-stroke}
+.calm-viz__band{fill:url(#calm-reference-field)}
+.calm-viz__series-glow,.calm-viz__series{fill:none;stroke:var(--viz-aqua);stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.calm-viz__series-glow{stroke-width:9;opacity:.11}
+.calm-viz__series{stroke-width:2.5}
 .calm-viz__inferred{fill:none;stroke:var(--viz-purple);stroke-width:2;stroke-dasharray:6 5;vector-effect:non-scaling-stroke}
 .calm-viz__attention{fill:var(--viz-coral);stroke:var(--viz-white);stroke-width:2}
+.calm-viz__legend .is-band i{height:8px;background:rgba(2,171,177,.24);border:1px solid rgba(189,240,255,.48)}
+.calm-viz__legend .is-series i{background:var(--viz-aqua)}
+.calm-viz__legend .is-inferred i{background:repeating-linear-gradient(90deg,var(--viz-purple) 0 4px,transparent 4px 7px)}
+
+/* Molecular Bespoke uses the same live renderers as the shared chart system. */
+.theme--molecular .interface-example__demo{background:#00126e!important;border-color:rgba(189,240,255,.22)!important}
+.theme--molecular .calm-viz{background:#07133d;-webkit-backdrop-filter:none;backdrop-filter:none}
+.theme--molecular .calm-viz__header span{color:#bdf0ff}
+.theme--molecular .calm-viz__grid{stroke:rgba(189,240,255,.13)}
+.theme--molecular .calm-viz__series,.theme--molecular .calm-viz__series-glow,.theme--molecular .calm-viz__arc-value,.theme--molecular .calm-viz__arc-glow{stroke:#bdf0ff}
+.theme--molecular .calm-viz__inferred{stroke:#d780ff}
+.theme--molecular .calm-viz__attention{display:none}
+.theme--molecular .calm-viz__arc-track,.theme--molecular .calm-viz__rail:before{stroke:#53618b;background:#53618b}
+.theme--molecular .calm-viz__rail i{border-color:#07133d}
+.theme--molecular .calm-viz__rail .is-active i{background:#02abb1;box-shadow:0 0 0 1px #9cf6fb}
+.theme--molecular .calm-viz__rail .is-current i{background:#d780ff;box-shadow:0 0 0 1px #f1defc}
+.theme--molecular .calm-viz__footer{border-color:rgba(189,240,255,.18);color:#a9c6d7}
+.theme--molecular .calm-viz__legend .is-band i{background:rgba(2,171,177,.24);border-color:rgba(189,240,255,.52)}
+.theme--molecular .calm-viz__legend .is-series i{background:#bdf0ff}
+.theme--molecular .calm-viz__legend .is-inferred i{background:repeating-linear-gradient(90deg,#d780ff 0 4px,transparent 4px 7px)}
 
 .calm-viz__matrix{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:1px;margin:30px 0;background:#3a4248;border:1px solid #3a4248}
 .calm-viz__matrix>*{display:grid;place-items:center;min-height:42px;margin:0;background:#14191d;color:#9fabb3;font-size:9px;font-style:normal;font-weight:400;text-align:center}
