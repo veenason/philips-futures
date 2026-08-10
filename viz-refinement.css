@@ -77,12 +77,14 @@
 
 .calm-viz__arc-wrap{position:relative;width:min(100%,330px);margin:auto auto 0}
 .calm-viz__arc-wrap svg{display:block;width:100%;height:auto}
-.calm-viz__arc-track,.calm-viz__arc-glow,.calm-viz__arc-value{fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.calm-viz__arc-track,.calm-viz__arc-inner,.calm-viz__arc-glow,.calm-viz__arc-value{fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
 .calm-viz__arc-track{stroke:#4c545a}
+.calm-viz__arc-inner{stroke:#333b42;stroke-width:1}
 .calm-viz__arc-glow{stroke:var(--viz-aqua);stroke-width:13;opacity:.12}
 .calm-viz__arc-value{stroke:var(--viz-aqua);stroke-width:4}
 .calm-viz__arc-halo{fill:var(--viz-aqua);opacity:.12}
 .calm-viz__arc-point{fill:var(--viz-coral);stroke:var(--viz-white);stroke-width:2}
+.calm-viz__arc-ticks circle{fill:#7d8990}
 .calm-viz__arc-wrap>strong{position:absolute;left:0;right:0;bottom:22px;color:var(--viz-white);font-size:34px;font-weight:300;letter-spacing:-.04em;text-align:center}
 .calm-viz__ticks{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:-3px 0 21px}
 .calm-viz__ticks span{color:#93a1aa;font-size:9px;font-weight:400;text-align:center}
@@ -101,31 +103,64 @@
 .calm-viz__plot{display:block;width:100%;height:auto;margin:24px 0 10px;overflow:visible}
 .calm-viz__grid{fill:none;stroke:#343c42;stroke-width:1;vector-effect:non-scaling-stroke}
 .calm-viz__band{fill:url(#calm-reference-field)}
+.calm-viz__series-area{fill:url(#calm-series-fill)}
 .calm-viz__series-glow,.calm-viz__series{fill:none;stroke:var(--viz-aqua);stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .calm-viz__series-glow{stroke-width:9;opacity:.11}
 .calm-viz__series{stroke-width:2.5}
 .calm-viz__inferred{fill:none;stroke:var(--viz-purple);stroke-width:2;stroke-dasharray:6 5;vector-effect:non-scaling-stroke}
 .calm-viz__attention{fill:var(--viz-coral);stroke:var(--viz-white);stroke-width:2}
+.calm-viz__axis text{fill:#8f9da6;font:600 7px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.09em}
+.calm-viz__focus-halo{fill:var(--viz-coral);opacity:.12}
+.calm-viz__focus-point{fill:var(--viz-coral);stroke:var(--viz-white);stroke-width:1.5}
 .calm-viz__legend .is-band i{height:8px;background:rgba(2,171,177,.24);border:1px solid rgba(189,240,255,.48)}
 .calm-viz__legend .is-series i{background:var(--viz-aqua)}
 .calm-viz__legend .is-inferred i{background:repeating-linear-gradient(90deg,var(--viz-purple) 0 4px,transparent 4px 7px)}
 
-/* Molecular Bespoke uses the same live renderers as the shared chart system. */
-.theme--molecular .interface-example__demo{background:#00126e!important;border-color:rgba(189,240,255,.22)!important}
-.theme--molecular .calm-viz{background:#07133d;-webkit-backdrop-filter:none;backdrop-filter:none}
-.theme--molecular .calm-viz__header span{color:#bdf0ff}
-.theme--molecular .calm-viz__grid{stroke:rgba(189,240,255,.13)}
-.theme--molecular .calm-viz__series,.theme--molecular .calm-viz__series-glow,.theme--molecular .calm-viz__arc-value,.theme--molecular .calm-viz__arc-glow{stroke:#bdf0ff}
-.theme--molecular .calm-viz__inferred{stroke:#d780ff}
-.theme--molecular .calm-viz__attention{display:none}
-.theme--molecular .calm-viz__arc-track,.theme--molecular .calm-viz__rail:before{stroke:#53618b;background:#53618b}
-.theme--molecular .calm-viz__rail i{border-color:#07133d}
-.theme--molecular .calm-viz__rail .is-active i{background:#02abb1;box-shadow:0 0 0 1px #9cf6fb}
-.theme--molecular .calm-viz__rail .is-current i{background:#d780ff;box-shadow:0 0 0 1px #f1defc}
-.theme--molecular .calm-viz__footer{border-color:rgba(189,240,255,.18);color:#a9c6d7}
-.theme--molecular .calm-viz__legend .is-band i{background:rgba(2,171,177,.24);border-color:rgba(189,240,255,.52)}
-.theme--molecular .calm-viz__legend .is-series i{background:#bdf0ff}
-.theme--molecular .calm-viz__legend .is-inferred i{background:repeating-linear-gradient(90deg,#d780ff 0 4px,transparent 4px 7px)}
+/* Molecular Bespoke deliberately shifts into a richer editorial data aesthetic. */
+.theme--molecular .interface-example__demo{
+  background:#060812!important;
+  border-color:rgba(151,125,255,.34)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 22px 48px rgba(0,0,0,.34)!important;
+}
+.theme--molecular .calm-viz{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 8%,rgba(255,61,154,.16),transparent 32%),
+    radial-gradient(circle at 8% 88%,rgba(0,229,255,.13),transparent 36%),
+    linear-gradient(145deg,#11152a 0%,#080b16 54%,#121021 100%);
+  -webkit-backdrop-filter:blur(18px) saturate(1.18);
+  backdrop-filter:blur(18px) saturate(1.18);
+}
+.theme--molecular .calm-viz:before{content:"";position:absolute;inset:0;z-index:-1;border:1px solid rgba(255,255,255,.055);background:linear-gradient(115deg,rgba(255,255,255,.055),transparent 20%,transparent 72%,rgba(124,92,255,.055));pointer-events:none}
+.theme--molecular .calm-viz__header span{color:#a7a9ff}
+.theme--molecular .calm-viz__header strong{font-weight:350}
+.theme--molecular .calm-viz__grid{stroke:rgba(182,190,225,.12)}
+.theme--molecular .calm-viz__series,.theme--molecular .calm-viz__series-glow{stroke:url(#calm-series-stroke)}
+.theme--molecular .calm-viz__series-glow{stroke-width:13;opacity:.18;filter:blur(2px)}
+.theme--molecular .calm-viz__inferred{stroke:url(#calm-inferred-stroke);stroke-dasharray:4 5}
+.theme--molecular .calm-viz__focus-halo{fill:#ff3d9a;filter:blur(2px)}
+.theme--molecular .calm-viz__focus-point{fill:#ff6bb5;stroke:#fff}
+.theme--molecular .calm-viz__arc-track{stroke:rgba(182,190,225,.22)}
+.theme--molecular .calm-viz__arc-inner{stroke:rgba(124,92,255,.28)}
+.theme--molecular .calm-viz__arc-value,.theme--molecular .calm-viz__arc-glow{stroke:url(#calm-arc-spectrum)}
+.theme--molecular .calm-viz__arc-glow{stroke-width:18;opacity:.2;filter:blur(2px)}
+.theme--molecular .calm-viz__arc-halo{fill:url(#calm-arc-halo);opacity:1}
+.theme--molecular .calm-viz__arc-point{fill:#ff6bb5;stroke:#fff;filter:drop-shadow(0 0 7px rgba(255,61,154,.78))}
+.theme--molecular .calm-viz__arc-ticks circle{fill:#b9b5d8;opacity:.62}
+.theme--molecular .calm-viz__rail{padding-top:28px}
+.theme--molecular .calm-viz__rail:before{height:3px;border-radius:999px;background:linear-gradient(90deg,#00e5ff 0%,#7c5cff 34%,rgba(124,92,255,.28) 64%,rgba(187,190,215,.12) 100%);box-shadow:0 0 20px rgba(124,92,255,.23)}
+.theme--molecular .calm-viz__rail:after{content:"";position:absolute;left:9%;top:20px;width:30%;height:18px;border-radius:999px;background:linear-gradient(90deg,rgba(0,229,255,.18),rgba(124,92,255,.32));filter:blur(10px);pointer-events:none}
+.theme--molecular .calm-viz__rail i{width:19px;height:19px;border:5px solid #0b0e1b;background:#282c3f;box-shadow:0 0 0 1px rgba(199,202,229,.24)}
+.theme--molecular .calm-viz__rail .is-active i{background:#00d4ee;box-shadow:0 0 0 1px #7cf4ff,0 0 15px rgba(0,229,255,.36)}
+.theme--molecular .calm-viz__rail .is-current i{background:linear-gradient(145deg,#8d72ff,#ff62ac);box-shadow:0 0 0 1px #f0eaff,0 0 18px rgba(255,61,154,.42)}
+.theme--molecular .calm-viz__rail .is-current b{color:#fff}
+.theme--molecular .calm-viz__footer{display:none}
+.theme--molecular .calm-viz__legend{margin-top:6px}
+.theme--molecular .calm-viz__legend .is-band i{background:linear-gradient(90deg,rgba(0,229,255,.32),rgba(124,92,255,.28));border-color:rgba(165,154,255,.62)}
+.theme--molecular .calm-viz__legend .is-series i{background:linear-gradient(90deg,#00e5ff,#8b7bff,#ff6bb5)}
+.theme--molecular .calm-viz__legend .is-inferred i{background:repeating-linear-gradient(90deg,#a991ff 0 4px,transparent 4px 7px)}
+.theme--molecular .calm-viz__series,.theme--molecular .calm-viz__arc-value{animation:calm-line-reveal .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes calm-line-reveal{from{stroke-dasharray:520;stroke-dashoffset:520}to{stroke-dasharray:520;stroke-dashoffset:0}}
 
 .calm-viz__matrix{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:1px;margin:30px 0;background:#3a4248;border:1px solid #3a4248}
 .calm-viz__matrix>*{display:grid;place-items:center;min-height:42px;margin:0;background:#14191d;color:#9fabb3;font-size:9px;font-style:normal;font-weight:400;text-align:center}
@@ -188,4 +223,5 @@
 }
 @media(prefers-reduced-motion:reduce){
   .interface-example__media{transition:none!important}
+  .theme--molecular .calm-viz__series,.theme--molecular .calm-viz__arc-value{animation:none!important}
 }
