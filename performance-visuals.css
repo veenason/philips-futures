@@ -349,6 +349,16 @@
   transform:none;
   animation:sensory-presence-breathe 8.5s ease-in-out infinite;
 }
+.theme--sensory .biometric-field--card .biometric-field__presence{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:50% 50%;
+  opacity:.88;
+  mix-blend-mode:screen;
+  filter:saturate(.74) contrast(1.12) brightness(.9) drop-shadow(0 0 15px rgba(154,145,255,.28)) drop-shadow(0 0 34px rgba(75,55,255,.22));
+}
 .theme--sensory .biometric-field--card .biometric-field__slice{
   transform:none!important;
   opacity:.25;
