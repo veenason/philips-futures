@@ -26,7 +26,7 @@ window.CARE_FUTURES = {
         ["Interface move", "Use wood-integrated touch, a single warm light state and a deliberate press-and-hold acknowledgement."],
         ["Guardrail", "Never disguise sensing: show its state, make it physically interruptible and keep care data out of shared view by default."]
       ],
-      evidence: ["WGSN × Philips · Sensorial Reset (pp. 10–11, 34–35)", "frog Futurescape 2026 · AI breaks through the screen (PDF p. 17)"],
+      evidence: ["WGSN × Philips · Sensorial Reset (pp. 10–11, 34–35)", "frog Futurescape 2026 · AI breaks through the screen (PDF p. 17)", "Adobe Express · Organic and imperfect design (2026)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
         mappingStatus: "Handcrafted Care is a Philips concept mapped to WGSN’s Sensorial Reset; it is not a theme named in the report.",
@@ -41,7 +41,8 @@ window.CARE_FUTURES = {
         signals: [
           { publisher: "WGSN × Philips", title: "Design for permanence", finding: "The Keepers strategy points to long life, refined engineering, crafted texture and honest construction.", citation: "pp. 24–25", kind: "Direct report evidence" },
           { publisher: "WGSN × Philips", title: "Calibrated technology", finding: "The Restorers add a complementary need for calm, intentional technology and domestic warmth around care.", citation: "pp. 26–27", kind: "Supporting report evidence" },
-          { publisher: "frog Futurescape 2026", title: "AI moves into objects and spaces", finding: "Ambient intelligence extends into physical objects and places, making dignity, boundaries and the texture of daily life central design questions.", citation: "PDF p. 17 · report p. 33", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" }
+          { publisher: "frog Futurescape 2026", title: "AI moves into objects and spaces", finding: "Ambient intelligence extends into physical objects and places, making dignity, boundaries and the texture of daily life central design questions.", citation: "PDF p. 17 · report p. 33", url: "https://www.frog.co/designmind/futurescape-2026-artificial-realities-human-ai-chemistry", kind: "Supporting perspective" },
+          { publisher: "Adobe Express", title: "Organic and imperfect design", finding: "Adobe identifies a move toward organic, analog and human-centred design through hand-rendered elements, earthy textures, mixed media and visible imperfection.", citation: "Design Trends 2026", url: "https://www.adobe.com/express/learn/blog/design-trends-2026", kind: "Supporting design trend" }
         ],
         integrity: "Scores shown here belong to WGSN’s Sensorial Reset Big Idea. No survey percentage is claimed. Interface implications are Philips design synthesis."
       },
@@ -50,7 +51,7 @@ window.CARE_FUTURES = {
       signalLabels: {
         "01-linen-vitals": "Information becomes material",
         "02-knitted-temperature": "Materials become responsive",
-        "03-handdrawn-apps": "Apps become hand drawn"
+        "03-handdrawn-apps": "Human-made and organic"
       },
       interfaceExamples: [
         { shift: "Surface shift", title: "Information becomes material", summary: "Vitals appear through wood, fabric, ceramic or glass only when attention is needed.", implication: "Use low-resolution type, warm micro-light and a strict one-glance hierarchy.", tokens: ["Surface-native", "Low-lux", "Glanceable"], demo: "material-vitals-strip", demoAlt: "Patient vital signs integrated into an architectural wall surface" },
