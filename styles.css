@@ -223,4 +223,54 @@ body{background:var(--paper)!important;color:var(--ink)!important}
   font-synthesis:none;
 }
 
+/* Sitewide contact call-to-action. */
+.footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  line-height:1.5;
+}
+.footer__meta{max-width:760px}
+.footer__contact{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:48px;
+  padding:0 19px;
+  border:1px solid rgba(143,207,255,.38);
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(32,85,121,.34),rgba(20,33,42,.9));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 28px rgba(0,0,0,.14);
+  color:#eff8ff;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.015em;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.footer__contact:before{
+  content:"";
+  width:7px;
+  height:7px;
+  flex:0 0 auto;
+  border-radius:50%;
+  background:#8fcfff;
+  box-shadow:0 0 0 5px rgba(143,207,255,.08),0 0 14px rgba(143,207,255,.65);
+}
+.footer__contact:hover{
+  border-color:rgba(143,207,255,.72);
+  background:linear-gradient(135deg,rgba(39,107,151,.46),rgba(20,33,42,.94));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 34px rgba(0,0,0,.2);
+  transform:translateY(-1px);
+}
+.footer__contact:focus-visible{outline:2px solid #8fcfff;outline-offset:4px}
+@media(max-width:720px){
+  .footer{display:flex;align-items:flex-start;flex-direction:column;gap:18px}
+  .footer__contact{width:100%;box-sizing:border-box}
+}
+@media(prefers-reduced-motion:reduce){.footer__contact{transition:none}.footer__contact:hover{transform:none}}
+
 .trust-method{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.trust-method article{min-height:225px;padding:20px;border:1px solid rgba(152,220,255,.1);border-radius:18px;background:#16232b;box-shadow:inset 3px 3px 8px #10191e,inset -3px -3px 8px #20323c}.trust-method__glyph{position:relative;display:flex;align-items:end;gap:5px;height:68px;margin-bottom:22px;border-bottom:1px solid #314a56}.trust-method__glyph i{display:block;width:13px;border-radius:5px 5px 2px 2px;background:#4fa8db;box-shadow:0 0 10px rgba(79,168,219,.25)}.trust-method__glyph--source i:nth-child(1){height:20px}.trust-method__glyph--source i:nth-child(2){height:43px}.trust-method__glyph--source i:nth-child(3){height:31px}.trust-method__glyph--verify i{width:25px;height:25px;border-radius:50%;background:transparent;border:2px solid #68b9eb;box-shadow:none}.trust-method__glyph--verify i:nth-child(2){width:45px;height:45px;border-color:#aee1ff}.trust-method__glyph--verify i:nth-child(3){width:20px;height:20px;border-color:#ffb56a}.trust-method__glyph--explain i{height:12px;width:60px;transform:skewX(-30deg);background:#3f7898}.trust-method__glyph--explain i:nth-child(2){height:26px;background:#6eb7ff}.trust-method__glyph--explain i:nth-child(3){height:43px;background:#a7dcff}.trust-method__glyph--agency i{position:absolute;left:50%;top:9px;width:46px;height:46px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,#b4e6ff 0 12%,#4e9fd0 13% 30%,transparent 31%);border:1px solid #91d4ff;box-shadow:0 0 0 8px rgba(96,182,234,.08)}.trust-method__glyph--agency i:nth-child(2){left:30%;top:31px;width:8px;height:8px;background:#ffb56a;border:0;box-shadow:none}.trust-method__glyph--agency i:nth-child(3){left:70%;top:31px;width:8px;height:8px;background:#ffb56a;border:0;box-shadow:none}.trust-method p{margin:0 0 11px;color:#91ceff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase}.trust-method strong{display:block;color:#f0f8fc;font-size:15px;line-height:1.2}.trust-method span{display:block;margin-top:10px;color:#a4bdca;font-size:11px;line-height:1.45}@media(max-width:900px){.trust-method{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.trust-method{grid-template-columns:1fr}.trust-method article{min-height:190px}}
