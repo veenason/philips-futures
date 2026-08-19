@@ -26,6 +26,30 @@ window.CARE_FUTURES = {
         ["Interface move", "Use wood-integrated touch, a single warm light state and a deliberate press-and-hold acknowledgement."],
         ["Guardrail", "Never disguise sensing: show its state, make it physically interruptible and keep care data out of shared view by default."]
       ],
+      visibleSignals: [
+        {
+          source: "IKEA",
+          precedent: "STARKVIND table with air purifier",
+          evidence: "A side table integrates an air purifier; automatic mode responds to PM2.5, while connected control, a concealed cable and a switchable night LED keep the service discreet.",
+          meaning: "Capability can recede into a familiar household object while retaining legible, low-attention control.",
+          url: "https://www.ikea.com/us/en/p/starkvind-table-with-air-purifier-stained-oak-veneer-white-smart-80461974/"
+        },
+        {
+          source: "mui Lab",
+          precedent: "mui Board",
+          evidence: "A natural-wood touch display presents information through the material when needed and otherwise blends into the environment.",
+          meaning: "Information can adopt the material and attention level of its host surface, remaining dormant by default.",
+          url: "https://muilab.com/en/products_and_services/muiboard/"
+        },
+        {
+          source: "Flic",
+          precedent: "Flic Twist",
+          evidence: "The physical controller supports push, double-push, twist and push-and-twist actions for connected environments.",
+          meaning: "A small set of deliberate tactile gestures can replace app navigation and become a reusable interaction grammar.",
+          url: "https://flic.io/shop/flic-twist"
+        }
+      ],
+      precedentBoundary: "These products demonstrate furniture-integrated capability, material-native display and deliberate tactile control; they do not establish that household surfaces can deliver clinically validated monitoring.",
       evidence: ["WGSN × Philips · Sensorial Reset (pp. 10–11, 34–35)", "frog Futurescape 2026 · AI breaks through the screen (PDF p. 17)", "Adobe Express · Organic and imperfect design (2026)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
@@ -85,6 +109,30 @@ window.CARE_FUTURES = {
         ["Interface move", "Use transparent layers to separate raw signal, personal context and suggested action; use fine graphs to show change without dramatizing it."],
         ["Guardrail", "Invisible must never mean unknowable. Contact, calibration, confidence, retention and sharing need visible states and immediate controls."]
       ],
+      visibleSignals: [
+        {
+          source: "Oura",
+          precedent: "Oura Ring 4",
+          evidence: "Recessed sensors and body-adaptive sensing collect sleep, activity, stress, heart and cycle signals continuously in the background.",
+          meaning: "Continuous micro-sensing can become peripheral and body-adaptive, shifting interface value from capture toward selective interpretation.",
+          url: "https://ouraring.com/product/rings"
+        },
+        {
+          source: "Withings",
+          precedent: "Sleep Analyzer",
+          evidence: "An under-mattress sensor automatically measures sleep after a one-time setup, without requiring a wearable or a nightly start action.",
+          meaning: "Sensing can become quiet infrastructure embedded in an ordinary routine, with review happening after the experience rather than during it.",
+          url: "https://support.withings.com/hc/en-us/articles/115015758247-Sleep-Analyzer-EU-ROW-What-is-this-device-and-what-does-it-measure"
+        },
+        {
+          source: "Abbott",
+          precedent: "Lingo biowearable",
+          evidence: "A skin-worn sensor reads glucose and the app translates readings into behavioral insights; Abbott states that the product is not intended to diagnose or manage disease.",
+          meaning: "A continuous skin-level signal can be separated into raw evidence, interpretation and a selective next action.",
+          url: "https://www.abbott.com/en-us/products-solutions/biowearables"
+        }
+      ],
+      precedentBoundary: "These precedents demonstrate continuous and ambient sensing, not invisible clinical certainty. Market, regulatory and medical scope varies; persistent consent, calibration, confidence and pause controls remain required.",
       evidence: ["WGSN × Philips · AI Ordinary (pp. 8–9, 34–35)", "frog Futurescape 2026 · healthcare finally gets personal (PDF p. 8)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
@@ -142,6 +190,30 @@ window.CARE_FUTURES = {
         ["Interface move", "Translate verified change into light rhythm, spatial colour, sound restraint and haptic pulse; reveal the underlying evidence on demand."],
         ["Guardrail", "Never make sensory feedback the only route to meaning. Every cue needs accessible alternatives, explicit consent, a pause state and human review."]
       ],
+      visibleSignals: [
+        {
+          source: "Apple",
+          precedent: "Taptic Time on Apple Watch",
+          evidence: "In Silent Mode, a deliberate two-finger hold communicates the time through selectable Digits, Terse or Morse haptic patterns.",
+          meaning: "Quantitative information can become a learnable haptic grammar while remaining intentional and accessible through alternatives.",
+          url: "https://support.apple.com/en-euro/guide/watch/apd2c755c294/watchos"
+        },
+        {
+          source: "Philips Hue",
+          precedent: "Hue Sync for music",
+          evidence: "Hue Sync captures computer audio and translates it into an immediate, customizable light script across connected color-capable lights.",
+          meaning: "Dynamic information can be translated into ambient spatial light when intensity and mapping stay under user control.",
+          url: "https://www.philips-hue.com/en-sg/explore-hue/propositions/entertainment/music"
+        },
+        {
+          source: "Apple",
+          precedent: "Apple Watch haptic alerts",
+          evidence: "Users can choose default or prominent haptics; the prominent setting adds a pre-announcing tap and the watch must maintain skin contact.",
+          meaning: "Criticality and timing can be expressed through controlled haptic intensity, provided touch is not the only carrier of meaning.",
+          url: "https://support.apple.com/en-us/108368"
+        }
+      ],
+      precedentBoundary: "These products demonstrate haptic and light-based translation of information, not that a sensory cue alone can communicate clinical meaning. Critical states still require equivalent visual, text, sound and human-review routes.",
       evidence: ["WGSN × Philips · Sensorial Reset + Restoring Trust (pp. 10–11, 18–19, 34–35)", "frog Futurescape 2026 · burnout and human sustainability (PDF p. 22)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · two mapped Big Ideas" },
@@ -200,6 +272,30 @@ window.CARE_FUTURES = {
         ["Interface move", "Separate facts from recommendations, show provenance at the moment of decision and make consent changes easy to revisit."],
         ["Guardrail", "No recommendation should outrun a person’s understanding. Offer human escalation and an audit trail for consequential automation."]
       ],
+      visibleSignals: [
+        {
+          source: "Apple",
+          precedent: "Health data sharing",
+          evidence: "People choose which health topics to share with individuals or participating providers and can review, change or stop that sharing.",
+          meaning: "Consent can become a granular, revisitable interaction at the point of sharing rather than a one-time policy acceptance.",
+          url: "https://support.apple.com/guide/iphone/share-your-health-data-iph5ede58c3d/ios"
+        },
+        {
+          source: "Google Android",
+          precedent: "Privacy Dashboard",
+          evidence: "The dashboard shows which apps accessed sensitive data, which permissions were used and when, with a route to change those permissions.",
+          meaning: "Data provenance can become an inspectable timeline with control in context instead of hidden platform history.",
+          url: "https://support.google.com/android/answer/13530434?hl=en"
+        },
+        {
+          source: "Google Android",
+          precedent: "App permission controls",
+          evidence: "Permission states include while-in-use, ask-every-time and deny; camera and microphone access can also be disabled at system level.",
+          meaning: "Purpose and duration of access can remain legible, interruptible and easy to revisit throughout an experience.",
+          url: "https://support.google.com/android/answer/9431959?hl=en-en"
+        }
+      ],
+      precedentBoundary: "These precedents demonstrate visible permissions, sharing controls and access histories in consumer platforms. They do not prove informed consent, clinical accountability or safe automated decision-making across care organizations.",
       evidence: ["WGSN × Philips · Restoring Trust (pp. 18–19, 34–35)", "frog Futurescape 2026 · trust as universal currency (PDF p. 19)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · direct evidence and mapped interpretation" },
@@ -257,6 +353,30 @@ window.CARE_FUTURES = {
         ["Interface move", "Show a personal baseline before a recommendation, use discreet held objects and let people decide what context travels to care teams."],
         ["Guardrail", "Precision must not become biometric exposure. Apply data minimisation, meaningful consent and equitable routes into advanced care."]
       ],
+      visibleSignals: [
+        {
+          source: "Oura",
+          precedent: "Oura Trends",
+          evidence: "Trend views span multiple time horizons and show body temperature as variation from a personal baseline; some spotlight patterns require baseline data first.",
+          meaning: "A personal baseline can replace a population average as the first explanatory layer for longitudinal change.",
+          url: "https://support.ouraring.com/hc/articles/360055983614-Using-Trends"
+        },
+        {
+          source: "Oura",
+          precedent: "Export and Share Data",
+          evidence: "Members can download CSV data or share selected report summaries with trusted professionals over a chosen date range.",
+          meaning: "Personal context can travel selectively through user-held controls for signal, timeframe and recipient.",
+          url: "https://support.ouraring.com/hc/articles/360025441594-Export-Share-Your-Oura-Data"
+        },
+        {
+          source: "Dexcom",
+          precedent: "Dexcom Clarity",
+          evidence: "Clarity organizes continuous glucose data into patterns, trends, comparisons and reports that can be authorized for clinic review; Dexcom warns against using it alone for treatment decisions.",
+          meaning: "Dense personal data can stay understandable through stable pattern summaries, explicit sharing and a clear boundary between insight and clinical action.",
+          url: "https://www.dexcom.com/en-us/clarity"
+        }
+      ],
+      precedentBoundary: "These precedents demonstrate personal baselines, user-selected sharing and adaptive interpretation. They do not validate molecular diagnosis, dosing or equitable access; uncertainty, clinical oversight and data minimisation remain essential.",
       evidence: ["WGSN × Philips · Fragmented Identities (pp. 16–17, 34–35)", "frog Futurescape 2026 · healthcare gets personal + aging becomes a choice (PDF pp. 8, 28)"],
       researchBrief: {
         provenance: { publisher: "WGSN × Philips", report: "Generational Health & Wellbeing Trends", note: "Uploaded report · partial mapping with explicit limits" },

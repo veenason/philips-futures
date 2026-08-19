@@ -116,12 +116,30 @@
     if(directionLabel) directionLabel.textContent="01—04 · Care directions";
     document.querySelector("#source-grid").innerHTML = data.sources.map(sourceCard).join("");
   }
+  const visibleSignals = theme => {
+    const signals = Array.isArray(theme.visibleSignals) ? theme.visibleSignals : [];
+    if (!signals.length) return "";
+    const boundary = theme.precedentBoundary || "These consumer precedents illustrate an emerging experience pattern. They are not product recommendations or Philips product commitments.";
+    return `<section class="visible-signals" aria-labelledby="visible-signals-title">
+      <header class="visible-signals__header">
+        <div><p class="eyebrow">Consumer precedents · not product recommendations</p><h2 id="visible-signals-title">Signals already visible</h2></div>
+        <p>Existing consumer experiences make parts of this direction tangible today. The useful signal is the interaction pattern—not the product itself.</p>
+      </header>
+      <div class="visible-signals__grid">${signals.map((signal, index) => `<article class="visible-signal">
+        <div class="visible-signal__top"><span>${String(index + 1).padStart(2, "0")} · Consumer precedent</span><cite>${signal.source}</cite></div>
+        <h3>${signal.precedent}</h3>
+        <div class="visible-signal__body"><div><span>What is visible now</span><p>${signal.evidence}</p></div><div><span>Broader interface signal</span><p>${signal.meaning}</p></div></div>
+        ${signal.url ? `<a href="${signal.url}" target="_blank" rel="noreferrer" aria-label="View source for ${signal.precedent}">View source <span aria-hidden="true">↗</span></a>` : ""}
+      </article>`).join("")}</div>
+      <aside class="visible-signals__boundary" aria-label="Precedent boundary"><strong>Boundary</strong><p>${boundary}</p></aside>
+    </section>`;
+  };
   function renderDetail(slug){
     const theme=data.themes[slug]; if(!theme) return;
     const scenarioTrigger = (image, index, className, caption) => {
       const trustViz = theme.tone === "trust" && (image === "02-consent-by-design" || image === "04-hospital-to-home");
-      if (trustViz && image === "02-consent-by-design") return `<figure class="trust-card trust-card--consent"><div class="trust-card__top"><span>CONSENT SCOPE</span><strong data-consent-summary>02 / 03</strong></div><div class="trust-consent__field"><div class="trust-consent__ring"><i></i><i></i><b>Care<br>data</b></div><p data-consent-copy><strong>Care team only</strong><span>Recovery pattern · purpose-bound</span></p></div><div class="trust-card__controls" role="group" aria-label="Illustrative consent scope"><button type="button" data-consent-mode="personal" aria-pressed="false">Personal</button><button type="button" data-consent-mode="team" aria-pressed="true">Care team</button><button type="button" data-consent-mode="pathway" aria-pressed="false">Care pathway</button></div><small>Illustrative consent state · select a scope</small></div><figcaption>${caption}</figcaption></figure>`;
-      if (trustViz) return `<figure class="trust-card trust-card--continuity"><div class="trust-card__top"><span>CONTINUITY PATH</span><strong data-route-summary>02 / 03</strong></div><div class="trust-route" aria-live="polite"><div class="trust-route__line"><i></i><i></i><i></i></div><div class="trust-route__labels"><span>Home</span><span>Handoff</span><span>Hospital</span></div><p data-route-copy><strong>Shared plan ready</strong><span>Patient context travels with consent.</span></p></div><div class="trust-card__controls" role="group" aria-label="Illustrative care continuity stage"><button type="button" data-route-stage="home" aria-pressed="false">Home</button><button type="button" data-route-stage="handoff" aria-pressed="true">Handoff</button><button type="button" data-route-stage="hospital" aria-pressed="false">Hospital</button></div><small>Illustrative continuity state · select a stage</small></div><figcaption>${caption}</figcaption></figure>`;
+      if (trustViz && image === "02-consent-by-design") return `<figure class="trust-card trust-card--consent"><div class="trust-card__top"><span>CONSENT SCOPE</span><strong data-consent-summary>02 / 03</strong><button class="scenario-card__open" type="button" data-scenario="${index}" aria-label="Open hand-sketched scenario: ${theme.scenarios[index].title}">Sketch <span aria-hidden="true">↗</span></button></div><div class="trust-consent__field"><div class="trust-consent__ring"><i></i><i></i><b>Care<br>data</b></div><p data-consent-copy><strong>Care team only</strong><span>Recovery pattern · purpose-bound</span></p></div><div class="trust-card__controls" role="group" aria-label="Illustrative consent scope"><button type="button" data-consent-mode="personal" aria-pressed="false">Personal</button><button type="button" data-consent-mode="team" aria-pressed="true">Care team</button><button type="button" data-consent-mode="pathway" aria-pressed="false">Care pathway</button></div><small>Illustrative consent state · select a scope</small><figcaption>${caption}</figcaption></figure>`;
+      if (trustViz) return `<figure class="trust-card trust-card--continuity"><div class="trust-card__top"><span>CONTINUITY PATH</span><strong data-route-summary>02 / 03</strong><button class="scenario-card__open" type="button" data-scenario="${index}" aria-label="Open hand-sketched scenario: ${theme.scenarios[index].title}">Sketch <span aria-hidden="true">↗</span></button></div><div class="trust-route" aria-live="polite"><div class="trust-route__line"><i></i><i></i><i></i></div><div class="trust-route__labels"><span>Home</span><span>Handoff</span><span>Hospital</span></div><p data-route-copy><strong>Shared plan ready</strong><span>Patient context travels with consent.</span></p></div><div class="trust-card__controls" role="group" aria-label="Illustrative care continuity stage"><button type="button" data-route-stage="home" aria-pressed="false">Home</button><button type="button" data-route-stage="handoff" aria-pressed="true">Handoff</button><button type="button" data-route-stage="hospital" aria-pressed="false">Hospital</button></div><small>Illustrative continuity state · select a stage</small><figcaption>${caption}</figcaption></figure>`;
       const performanceVisual = theme.tone === "invisible" && image === theme.images[0];
       const mriVisual = theme.tone === "invisible" && image === "02-adaptive-lamp";
       const biometricVisual = theme.tone === "sensory" && image === "04-glowing-vessel";
@@ -161,24 +179,50 @@
         ${trustAnatomyExplorer(theme)}
         ${trustExplorer(theme)}
         <section class="trend-lens" aria-labelledby="lens-title"><p class="eyebrow" id="lens-title">Society → experience → interface</p><h2>Why this direction matters now</h2><div class="trend-lens__grid">${theme.lens.map(([label,value])=>`<article><p>${label}</p><strong>${value}</strong></article>`).join("")}</div><p class="trend-lens__evidence">Signals informing this exploration: ${theme.evidence.join(" · ")}</p></section>
+        ${visibleSignals(theme)}
         <section class="product-reframe" aria-labelledby="product-reframe-title"><p class="eyebrow">Interface evolution</p><h2 id="product-reframe-title">How the interface changes</h2><div class="product-reframe__grid"><p><span>Defining characteristics</span><strong>${theme.interfaceEvolution[0]}</strong></p><p><span>Emerging behaviour</span><strong>${theme.interfaceEvolution[1]}</strong></p><p class="product-reframe__idea"><span>Design-system implication</span><strong>${theme.interfaceEvolution[2]}</strong></p></div><p class="product-reframe__note">This direction describes interface qualities and behaviours, not a recommendation for a particular product, material or form factor.</p></section>
         ${interfaceExamples(theme)}
         ${applicationExample(theme)}
         <section class="brief-specs" aria-label="Direction summary"><div><p class="eyebrow">Future consumer persona</p><strong>${theme.persona}</strong></div><div><p class="eyebrow">Design mandate</p><strong>${theme.mandate}</strong></div><div><p class="eyebrow">Philips UI principle</p><strong>${theme.ui}</strong></div></section>
-        <dialog class="scenario-dialog" id="scenario-dialog" aria-labelledby="scenario-title"><div class="scenario-dialog__inner"><button class="scenario-dialog__close" type="button" data-close aria-label="Close scenario">×</button><p class="eyebrow">Hand-sketched scenario</p><h2 id="scenario-title"></h2><img src="" alt=""><p class="scenario-dialog__caption"></p></div></dialog>
+        <dialog class="scenario-dialog" id="scenario-dialog" aria-labelledby="scenario-title" aria-describedby="scenario-caption"><div class="scenario-dialog__inner">
+          <button class="scenario-dialog__close" type="button" data-close aria-label="Close scenario">×</button>
+          <header class="scenario-dialog__header"><p class="eyebrow scenario-dialog__disclosure"></p><p class="scenario-dialog__position" aria-live="polite"></p></header>
+          <h2 id="scenario-title"></h2>
+          <figure class="scenario-dialog__figure"><img src="" alt=""><figcaption class="scenario-dialog__caption" id="scenario-caption"></figcaption></figure>
+          <div class="scenario-dialog__audit" aria-label="Scenario integrity notes"><article><span>Depicts</span><p data-scenario-depicts></p></article><article><span>Design requirement not shown</span><p data-scenario-not-shown></p></article></div>
+          <p class="scenario-dialog__continuity" data-scenario-continuity hidden></p>
+          <nav class="scenario-dialog__nav" aria-label="Scenario moments"><button type="button" data-scenario-prev><span aria-hidden="true">←</span> Previous</button><button type="button" data-scenario-next>Next <span aria-hidden="true">→</span></button></nav>
+        </div></dialog>
       </article>`;
     const dialog=document.querySelector("#scenario-dialog");
     const dialogImage=dialog.querySelector("img");
     const dialogTitle=dialog.querySelector("h2");
     const dialogCaption=dialog.querySelector(".scenario-dialog__caption");
-    document.querySelectorAll("[data-scenario]").forEach(trigger=>trigger.addEventListener("click",()=>{
-      const scenario=theme.scenarios[Number(trigger.dataset.scenario)];
+    const dialogDisclosure=dialog.querySelector(".scenario-dialog__disclosure");
+    const dialogPosition=dialog.querySelector(".scenario-dialog__position");
+    const dialogDepicts=dialog.querySelector("[data-scenario-depicts]");
+    const dialogNotShown=dialog.querySelector("[data-scenario-not-shown]");
+    const dialogContinuity=dialog.querySelector("[data-scenario-continuity]");
+    let activeScenarioIndex=0;
+    const openScenario=index=>{
+      const count=theme.scenarios.length;
+      activeScenarioIndex=(Number(index)+count)%count;
+      const scenario=theme.scenarios[activeScenarioIndex];
       dialogTitle.textContent=scenario.title;
       dialogCaption.textContent=scenario.caption;
       dialogImage.src=`${theme.storyboardBase}${scenario.image}.webp`;
-      dialogImage.alt=`Hand-sketched scenario: ${scenario.title}`;
-      dialog.showModal();
-    }));
+      dialogImage.alt=`Concept sketch: ${scenario.title}`;
+      dialogDisclosure.textContent=theme.scenarioDisclosure || "Concept sketch · illustrative, not validated";
+      dialogPosition.textContent=`${theme.casting} future · ${theme.horizon} · Moment ${activeScenarioIndex + 1} of ${count}`;
+      dialogDepicts.textContent=scenario.depicts || scenario.caption;
+      dialogNotShown.textContent=scenario.notShown || "Feasibility, evidence and controls require validation.";
+      dialogContinuity.hidden=!theme.scenarioContinuityNote;
+      dialogContinuity.textContent=theme.scenarioContinuityNote || "";
+      if(!dialog.open) dialog.showModal();
+    };
+    document.querySelectorAll("[data-scenario]").forEach(trigger=>trigger.addEventListener("click",()=>openScenario(trigger.dataset.scenario)));
+    dialog.querySelector("[data-scenario-prev]").addEventListener("click",()=>openScenario(activeScenarioIndex-1));
+    dialog.querySelector("[data-scenario-next]").addEventListener("click",()=>openScenario(activeScenarioIndex+1));
     const consentStates={personal:["01 / 03","Personal only","No care data leaves the person’s device."],team:["02 / 03","Care team only","Recovery pattern · purpose-bound"],pathway:["03 / 03","Care pathway","Verified context flows between home and hospital."]};
     document.querySelectorAll("[data-consent-mode]").forEach(control=>control.addEventListener("click",()=>{
       const [count,title,detail]=consentStates[control.dataset.consentMode];
@@ -213,6 +257,10 @@
     }));
     dialog.querySelector("[data-close]").addEventListener("click",()=>dialog.close());
     dialog.addEventListener("click",event=>{if(event.target===dialog) dialog.close();});
+    dialog.addEventListener("keydown",event=>{
+      if(event.key==="ArrowLeft"){event.preventDefault();openScenario(activeScenarioIndex-1);}
+      if(event.key==="ArrowRight"){event.preventDefault();openScenario(activeScenarioIndex+1);}
+    });
   }
   renderBrand();
   const slug=document.body.dataset.theme; slug ? renderDetail(slug) : renderHome();
