@@ -40,7 +40,13 @@
     return scores.length ? Math.max(...scores.map(([, value]) => Number(value))) : Number(theme.score);
   };
   const card = (slug, theme, index) => `<a class="theme-card theme-card--${index + 1}" href="${slug}.html"><img ${index > 1 ? 'loading="lazy"' : ''} src="${imageSrc(theme, theme.images[0])}" alt="${theme.title} visual direction"><div class="theme-card__top"><span>${String(index + 1).padStart(2, "0")} · ${theme.casting}</span><span title="Mapped WGSN 2028 Big Idea score">${mappedScore(theme)} <small>WGSN</small></span></div><div class="theme-card__body"><h2>${theme.title}</h2><p>${theme.kicker}</p><div class="theme-card__link">Open study <b>↗</b></div></div></a>`;
-  const sourceCard = source => `<article class="source-card"><h3>${source.label}</h3><p>${source.values.join(" · ")}</p><small>Reference lens for this directional study</small></article>`;
+  const sourceCard = source => `<article class="source-card"><h3>${source.label}</h3><p>${source.values.join(" · ")}</p><small>${source.note || "Reference lens for this directional study"}</small></article>`;
+  const scanCard = signal => `<article class="scan-card"><img loading="lazy" decoding="async" src="${signal.image}" alt="Cover from the attached ${signal.report} report"><div class="scan-card__body"><div class="scan-card__meta"><span>${signal.tag}</span><small>${signal.report}</small></div><h3>${signal.title}</h3><p>${signal.finding}</p><div class="scan-card__impact"><div><span>Product impact</span><strong>${signal.productImpact}</strong></div><div><span>UI impact</span><strong>${signal.uiImpact}</strong></div></div></div></article>`;
+  const directionSignals = slug => {
+    const signals=(data.scanSignals || []).filter(signal=>signal.direction===slug);
+    if(!signals.length) return "";
+    return `<section class="direction-signals" aria-labelledby="direction-signals-title"><header><div><p class="eyebrow">Horizon scan · mapped inputs</p><h2 id="direction-signals-title">Signals that sharpen this direction.</h2></div><p>Two supplied reports translated into concrete product and interface implications for ${data.themes[slug].title}.</p></header><div class="direction-signals__grid">${signals.map(scanCard).join("")}</div><p class="direction-signals__note">Directional interpretation only. The report signals inform product and UI exploration; they are not a forecast, product specification or clinical claim.</p></section>`;
+  };
   const researchBrief = theme => {
     const brief = theme.researchBrief;
     if (!brief) return "";
@@ -168,6 +174,7 @@
           <p class="brief-headline">${theme.headline}</p>
           <aside class="brief-horizon"><p>${theme.casting} · ${theme.horizon}</p><div>${theme.horizonNote}</div></aside>
         </header>
+        ${interfaceExamples(theme)}
         <div class="brief-story">
           <section><p class="eyebrow">The concept</p><p>${theme.concept}</p></section>
           ${scenarioTrigger(theme.images[0], 0, "brief-image", theme.kicker)}
@@ -179,9 +186,9 @@
         ${trustAnatomyExplorer(theme)}
         ${trustExplorer(theme)}
         <section class="trend-lens" aria-labelledby="lens-title"><p class="eyebrow" id="lens-title">Society → experience → interface</p><h2>Why this direction matters now</h2><div class="trend-lens__grid">${theme.lens.map(([label,value])=>`<article><p>${label}</p><strong>${value}</strong></article>`).join("")}</div><p class="trend-lens__evidence">Signals informing this exploration: ${theme.evidence.join(" · ")}</p></section>
+        ${directionSignals(slug)}
         ${visibleSignals(theme)}
         <section class="product-reframe" aria-labelledby="product-reframe-title"><p class="eyebrow">Interface evolution</p><h2 id="product-reframe-title">How the interface changes</h2><div class="product-reframe__grid"><p><span>Defining characteristics</span><strong>${theme.interfaceEvolution[0]}</strong></p><p><span>Emerging behaviour</span><strong>${theme.interfaceEvolution[1]}</strong></p><p class="product-reframe__idea"><span>Design-system implication</span><strong>${theme.interfaceEvolution[2]}</strong></p></div><p class="product-reframe__note">This direction describes interface qualities and behaviours, not a recommendation for a particular product, material or form factor.</p></section>
-        ${interfaceExamples(theme)}
         ${applicationExample(theme)}
         <section class="brief-specs" aria-label="Direction summary"><div><p class="eyebrow">Future consumer persona</p><strong>${theme.persona}</strong></div><div><p class="eyebrow">Design mandate</p><strong>${theme.mandate}</strong></div><div><p class="eyebrow">Philips UI principle</p><strong>${theme.ui}</strong></div></section>
         <dialog class="scenario-dialog" id="scenario-dialog" aria-labelledby="scenario-title" aria-describedby="scenario-caption"><div class="scenario-dialog__inner">
