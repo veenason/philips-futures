@@ -181,6 +181,7 @@
           <section><p class="eyebrow">In practice</p><p>${theme.practice}</p></section>
         </div>
         ${theme.integrateInterfaceImages ? "" : `<section class="visual-sequence" aria-labelledby="visual-sequence-title"><p class="eyebrow" id="visual-sequence-title">Interface trends</p><div>${theme.images.slice(1,4).map((image,index)=>scenarioTrigger(image, index + 1, "", signalLabel(theme, image))).join("")}</div></section>`}
+        <section class="product-reframe" aria-labelledby="product-reframe-title"><p class="eyebrow">Interface evolution</p><h2 id="product-reframe-title">How the interface changes</h2><div class="product-reframe__grid"><p><span>Defining characteristics</span><strong>${theme.interfaceEvolution[0]}</strong></p><p><span>Emerging behaviour</span><strong>${theme.interfaceEvolution[1]}</strong></p><p class="product-reframe__idea"><span>Design-system implication</span><strong>${theme.interfaceEvolution[2]}</strong></p></div><p class="product-reframe__note">This direction describes interface qualities and behaviours, not a recommendation for a particular product, material or form factor.</p></section>
         <section class="brief-values" aria-label="Experience principles">${theme.values.map(([label,value])=>`<div><span>${label}</span><strong>${value}</strong></div>`).join("")}</section>
         ${researchBrief(theme)}
         ${trustAnatomyExplorer(theme)}
@@ -188,7 +189,6 @@
         <section class="trend-lens" aria-labelledby="lens-title"><p class="eyebrow" id="lens-title">Society → experience → interface</p><h2>Why this direction matters now</h2><div class="trend-lens__grid">${theme.lens.map(([label,value])=>`<article><p>${label}</p><strong>${value}</strong></article>`).join("")}</div><p class="trend-lens__evidence">Signals informing this exploration: ${theme.evidence.join(" · ")}</p></section>
         ${directionSignals(slug)}
         ${visibleSignals(theme)}
-        <section class="product-reframe" aria-labelledby="product-reframe-title"><p class="eyebrow">Interface evolution</p><h2 id="product-reframe-title">How the interface changes</h2><div class="product-reframe__grid"><p><span>Defining characteristics</span><strong>${theme.interfaceEvolution[0]}</strong></p><p><span>Emerging behaviour</span><strong>${theme.interfaceEvolution[1]}</strong></p><p class="product-reframe__idea"><span>Design-system implication</span><strong>${theme.interfaceEvolution[2]}</strong></p></div><p class="product-reframe__note">This direction describes interface qualities and behaviours, not a recommendation for a particular product, material or form factor.</p></section>
         ${applicationExample(theme)}
         <section class="brief-specs" aria-label="Direction summary"><div><p class="eyebrow">Future consumer persona</p><strong>${theme.persona}</strong></div><div><p class="eyebrow">Design mandate</p><strong>${theme.mandate}</strong></div><div><p class="eyebrow">Philips UI principle</p><strong>${theme.ui}</strong></div></section>
         <dialog class="scenario-dialog" id="scenario-dialog" aria-labelledby="scenario-title" aria-describedby="scenario-caption"><div class="scenario-dialog__inner">
