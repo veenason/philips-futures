@@ -1,6 +1,6 @@
 (() => {
   const sessionKey = "philips-care-futures-access";
-  const expectedHash = "238d476999e8d7ae1fb2085a49bdb059ff4d2dd63939838e44461be706f3af38";
+  const expectedHash = "b41fdc29534279704b8379bc1191c21b0f10100c5e3dba80da8d29453f683458";
   const root = document.documentElement;
 
   root.classList.add("password-gate-pending");
